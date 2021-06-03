@@ -66,7 +66,7 @@ function App() {
           </div>
           <small>
             <a
-              href="https://github.com/Becks-395/vanilla-weather-app"
+              href="https://github.com/Becks-395/weather-react"
               target="_blank"
             >
               Open source code
