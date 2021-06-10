@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather() {
     const [weatherData, setWeatherData] = useState({ready: false});
@@ -9,7 +10,7 @@ export default function Weather() {
         setWeatherData({
             ready: true,
             temperature: response.data.main.temp,
-            date: "Today",
+            date: new Date(response.data.dt * 1000),
             humidity: response.data.main.humidity,
             wind: response.data.wind.speed,
             city: response.data.name,
@@ -27,8 +28,10 @@ export default function Weather() {
                   <h1 id="city">{weatherData.city}</h1>
                   <ul>
                     <li>
-                      Last updated: <span id="date">{weatherData.date}</span>,{" "}
-                      <span id="description" className="text-capitalize">{weatherData.description}</span>
+                      Last updated: <span id="date">
+                          <FormattedDate date={weatherData.date} />
+                          </span>
+                      <div id="description" className="text-capitalize">{weatherData.description}</div>
                     </li>
                     <li>
                       Humidity:{" "}
@@ -65,7 +68,7 @@ export default function Weather() {
                     placeholder="Enter a city..."
                     className="form-control search-input"
                     id="city-input"
-                    autocomplete="off"
+                    autoComplete="off"
                   />
                 </div>
                 <div className="col-3">
