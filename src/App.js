@@ -8,7 +8,7 @@ export default function App() {
     <Weather defaultCity="Barcelona"/>  
       </div>
     <footer>
-      <a href="https://github.com/Becks-395/weather-react" target="_blank">Open source code
+      <a href="https://github.com/Becks-395/weather-react" target="_blank" rel="noreferrer">Open source code
       </a>, by Becks Yates
     </footer>
   </div>
